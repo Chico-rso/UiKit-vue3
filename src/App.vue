@@ -57,4 +57,8 @@ function toggleSidebar()
 	background: var(--primary-color);
 	z-index: 2;
 }
+@media (max-width: 1043px)
+{
+	.content{margin-left: 0;}
+}
 </style>
