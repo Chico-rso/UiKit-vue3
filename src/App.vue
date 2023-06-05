@@ -54,7 +54,7 @@ function toggleSidebar()
 	top: 62px;
 	cursor: pointer;
 	color: #ffffff;
-	background: var(--primary-color);
+	background: var(--primary);
 	z-index: 2;
 }
 @media (max-width: 1043px)

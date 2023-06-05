@@ -49,7 +49,7 @@ const props = defineProps({
 		border: 2px solid #fff;
 		transition: 0.2s;
 		font-weight: bold;
-		&:hover{border-color: var(--primary-color)};
+		&:hover{border-color: var(--primary)};
 	}
 }
 </style>
