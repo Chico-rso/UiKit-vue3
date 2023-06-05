@@ -18,7 +18,7 @@ function toggleSidebar()
 		<LayoutSidebar
 			:sidebarOpen="sidebarOpen"
 		/>
-		<div class="content">
+		<div :class="['content', {content__full: !sidebarOpen}]">
 			<router-view/>
 		</div>
 	</div>
@@ -39,7 +39,7 @@ function toggleSidebar()
 	padding: 30px;
 	transition: .2s;
 
-	&_full
+	&__full
 	{margin-left: 0;}
 }
 .sidebar__toggle
