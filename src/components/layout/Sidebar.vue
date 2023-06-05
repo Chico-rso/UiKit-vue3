@@ -5,10 +5,17 @@ const links = ref([
 	{name: "Typography", href: '/typography'},
 	{name: "Button", href: "/button"},
 ]);
+const props = defineProps({
+	sidebarOpen:
+	{
+		type: Boolean,
+		required: true,
+	}
+})
 </script>
 
 <template>
-	<div class="sidebar">
+	<div :class="['sidebar', {sidebar__open: sidebarOpen}]">
 		<router-link
 			class="sidebar__link"
 			v-for="link in links"
@@ -31,7 +38,8 @@ const links = ref([
 	padding: 20px;
 	transition: 0.2s;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-	transform: translateX(0px);
+	transform: translateX(-250px);
+	&__open{transform: translateX(0)}
 	&__link
 	{
 		display: block;

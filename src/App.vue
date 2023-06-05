@@ -8,7 +8,6 @@ const sidebarOpen = ref(false);
 function toggleSidebar()
 {
 	sidebarOpen.value = !sidebarOpen.value;
-	console.log(sidebarOpen.value);
 }
 </script>
 
@@ -16,11 +15,9 @@ function toggleSidebar()
 	<div class="container">
 		<div class="sidebar__toggle" @click="toggleSidebar">&#5125</div>
 		<LayoutHeader/>
-		<Transition name="slide-fade">
-			<LayoutSidebar
-				v-if="sidebarOpen"
-			/>
-		</Transition>
+		<LayoutSidebar
+			:sidebarOpen="sidebarOpen"
+		/>
 		<div class="content">
 			<router-view/>
 		</div>
@@ -59,13 +56,5 @@ function toggleSidebar()
 	color: #ffffff;
 	background: var(--primary-color);
 	z-index: 2;
-}
-.slide-fade-enter-active{transition: all 0.3s ease-out;}
-.slide-fade-leave-active{transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);}
-.slide-fade-enter-from,
-.slide-fade-leave-to
-{
-	transform: translateX(20px);
-	opacity: 0;
 }
 </style>
