@@ -4,11 +4,44 @@ import Button from "@/components/Button.vue";
 
 <template>
 	<h1 class="heading-1">Button</h1>
+	<h2 class="heading-2">Colors</h2>
+	<div class="line"></div>
 	<Button
 		label="Primary"
+		color="primary"
+		rounded
+	/>
+	<Button
+		label="Secondary"
+		color="second"
+	/>
+	<Button
+		label="Success"
+		color="success"
+	/>
+	<Button
+		label="Info"
+		color="info"
+	/>
+	<Button
+		label="Warning"
+		color="warning"
+	/>
+	<Button
+		label="Danger"
+		color="danger"
+	/>
+	<Button
+		label="Disabled"
+		color="disabled"
 	/>
 </template>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+.line
+{
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: 20px;
+}
 </style>
