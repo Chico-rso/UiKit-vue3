@@ -1,9 +1,10 @@
 <template>
 	<button
 		:class="['btn', `btn--${color}`,
+			`btn--${size}`,
 			{'btn--rounded': rounded},
 			{'btn--outlined': outlined},
-			{'btn--icon': icon}
+			{'btn--icon': icon},
 		]"
 		:disabled="disabled"
 	>
@@ -45,8 +46,17 @@ const props = defineProps({
 	{
 		type: String,
 		default: ''
+	},
+	size:
+	{
+		type: String,
+		default: ''
 	}
 });
+
+const emit = defineEmits([
+	'click'
+])
 </script>
 
 <style lang="scss" scoped>
