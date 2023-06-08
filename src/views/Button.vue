@@ -1,7 +1,3 @@
-<script setup>
-import Button from "@/components/Button.vue";
-</script>
-
 <template>
 	<h1 class="heading-1">Button</h1>
 	<h2 class="heading-2">Rounded</h2>
@@ -22,6 +18,7 @@ import Button from "@/components/Button.vue";
 		<Button
 			label="Primary"
 			color="primary"
+			@click="changeColor"
 		/>
 		<Button
 			label="Secondary"
@@ -163,8 +160,22 @@ import Button from "@/components/Button.vue";
 			size="large"
 		/>
 	</div>
+	<h2 class="heading-2">Event</h2>
+	<div class="line">
+		<Button
+			label="Normal"
+			color="danger"
+			@click="eventForButton"
+		/>
+	</div>
 </template>
-
+<script setup>
+import Button from "@/components/Button.vue";
+function eventForButton()
+{
+	alert('you clicked danger button')
+}
+</script>
 <style lang="scss" scoped>
 .line
 {

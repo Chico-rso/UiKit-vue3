@@ -7,6 +7,7 @@
 			{'btn--icon': icon},
 		]"
 		:disabled="disabled"
+		@click="clickOnButton"
 	>
 		<span v-if="icon">
 			<font-awesome-icon :icon="`fa-regular fa-${icon}`" />
@@ -57,6 +58,10 @@ const props = defineProps({
 const emit = defineEmits([
 	'click'
 ])
+function clickOnButton()
+{
+	emit('click')
+}
 </script>
 
 <style lang="scss" scoped>
