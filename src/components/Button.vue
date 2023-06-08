@@ -1,6 +1,16 @@
 <template>
-	<button :class="['btn', `btn--${color}`,{'btn--rounded': rounded}]">
-		{{ label }}
+	<button
+		:class="['btn', `btn--${color}`,
+			{'btn--rounded': rounded},
+			{'btn--outlined': outlined},
+			{'btn--icon': icon}
+		]"
+		:disabled="disabled"
+	>
+		<span v-if="icon">
+			<font-awesome-icon :icon="`fa-regular fa-${icon}`" />
+		</span>
+		<span v-else>{{ label }}</span>
 	</button>
 </template>
 
@@ -20,6 +30,21 @@ const props = defineProps({
 	{
 		type: Boolean,
 		default: false,
+	},
+	disabled:
+	{
+		type: Boolean,
+		default: false,
+	},
+	outlined:
+	{
+		type: Boolean,
+		default: false,
+	},
+	icon:
+	{
+		type: String,
+		default: ''
 	}
 });
 </script>
