@@ -2,20 +2,21 @@
 import {ref} from "vue";
 
 const links = ref([
-	{name: "Typography", href: '/typography'},
+	{name: "Typography", href: "/typography"},
 	{name: "Button", href: "/button"},
+	{name: "Checkbox", href: "/checkbox"},
 ]);
 const props = defineProps({
 	sidebarOpen:
-	{
-		type: Boolean,
-		required: true,
-	}
-})
+		{
+			type: Boolean,
+			required: true,
+		},
+});
 </script>
 
 <template>
-	<div :class="['sidebar', {sidebar__open: sidebarOpen}]">
+	<div :class="['sidebar', {sidebar__isopen: sidebarOpen}]">
 		<router-link
 			class="sidebar__link"
 			v-for="link in links"
@@ -30,26 +31,35 @@ const props = defineProps({
 <style scoped lang="scss">
 .sidebar
 {
-	position: fixed;
 	left: 0;
 	top: 62px;
 	height: 100%;
+	background: #fff;
+	position: fixed;
 	width: 250px;
 	padding: 20px;
 	transition: 0.2s;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.07);
 	transform: translateX(-250px);
-	&__open{transform: translateX(0)}
+
+	&__isopen
+	{
+		transform: translateX(0px);
+	}
+
 	&__link
 	{
 		display: block;
-		padding: 10px;
-		margin-bottom: 10px;
 		border-radius: 12px;
 		border: 2px solid #fff;
 		transition: 0.2s;
 		font-weight: bold;
-		&:hover{border-color: var(--primary)};
+		margin-bottom: 10px;
+
+		&:hover
+		{
+			color: var(--primary);
+		}
 	}
 }
 </style>
