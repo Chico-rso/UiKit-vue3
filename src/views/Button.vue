@@ -176,11 +176,3 @@ function eventForButton()
 	alert('you clicked danger button')
 }
 </script>
-<style lang="scss" scoped>
-.line
-{
-	display: flex;
-	flex-wrap: wrap;
-	margin-bottom: 20px;
-}
-</style>

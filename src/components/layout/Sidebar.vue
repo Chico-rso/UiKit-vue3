@@ -1,17 +1,18 @@
 <script setup>
-import {ref} from "vue";
+import {onMounted, reactive, ref} from "vue";
+import router from "@/router/index.js";
 
-const links = ref([
+const links = reactive([
 	{name: "Typography", href: "/typography"},
 	{name: "Button", href: "/button"},
 	{name: "Checkbox", href: "/checkbox"},
 ]);
 const props = defineProps({
 	sidebarOpen:
-		{
-			type: Boolean,
-			required: true,
-		},
+	{
+		type: Boolean,
+		required: true,
+	},
 });
 </script>
 
@@ -39,13 +40,10 @@ const props = defineProps({
 	width: 250px;
 	padding: 20px;
 	transition: 0.2s;
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.07);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.07);
 	transform: translateX(-250px);
 
-	&__isopen
-	{
-		transform: translateX(0px);
-	}
+	&__isopen{transform: translateX(0px);}
 
 	&__link
 	{
@@ -56,10 +54,8 @@ const props = defineProps({
 		font-weight: bold;
 		margin-bottom: 10px;
 
-		&:hover
-		{
-			color: var(--primary);
-		}
+		&:hover{color: var(--primary);}
 	}
+	.router-link-active{color: var(--second);}
 }
 </style>
