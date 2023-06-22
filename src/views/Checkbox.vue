@@ -26,16 +26,32 @@
 
 <script setup>
 import Checkbox from "@/components/Checkbox/Checkbox.vue";
-import {ref} from "vue";
+import {reactive, ref} from "vue";
 
 const checkboxActive = ref(true)
 const checkboxDisabled = ref(true)
 const checkboxDisabledChecked = ref(true)
 
-const handleClick = (event)=>
-{
-	console.log('ddd',event);
-}
+const listOfHeroes = reactive([
+	{
+		name: 'Spider Man',
+		id: 'h1'
+	},
+	{
+		name: 'Batman',
+		id: 'h2'
+	},
+	{
+		name: 'Tor',
+		id: 'h3'
+	},
+	{
+		name: 'Loki',
+		id: 'h4'
+	}
+])
+
+const selectedHeroes = reactive([])
 </script>
 
 <style lang="scss">
