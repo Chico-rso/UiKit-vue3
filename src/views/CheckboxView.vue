@@ -22,10 +22,18 @@
 			v-model:checked="checkboxDisabledChecked"
 		/>
 	</div>
+	<h2 class="heading-2">Checkbox Group</h2>
+	<div class="line">
+		<p>Selected Heroes: {{selectedHeroes}}</p>
+		<CheckboxGroup
+			:options="listOfHeroes"
+		/>
+	</div>
 </template>
 
 <script setup>
 import Checkbox from "@/components/Checkbox/Checkbox.vue";
+import CheckboxGroup from "@/components/Checkbox/CheckboxGroup.vue";
 import {reactive, ref} from "vue";
 
 const checkboxActive = ref(true)
@@ -35,7 +43,7 @@ const checkboxDisabledChecked = ref(true)
 const listOfHeroes = reactive([
 	{
 		name: 'Spider Man',
-		id: 'h1'
+		ids: 'h1'
 	},
 	{
 		name: 'Batman',
