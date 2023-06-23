@@ -23,10 +23,12 @@
 		/>
 	</div>
 	<h2 class="heading-2">Checkbox Group</h2>
-	<div class="line">
+	<div class="line line__block">
 		<p>Selected Heroes: {{selectedHeroes}}</p>
 		<CheckboxGroup
 			:options="listOfHeroes"
+			name="heroes"
+			v-model:value="selectedHeroes"
 		/>
 	</div>
 </template>
@@ -43,7 +45,7 @@ const checkboxDisabledChecked = ref(true)
 const listOfHeroes = reactive([
 	{
 		name: 'Spider Man',
-		ids: 'h1'
+		id: 'h1'
 	},
 	{
 		name: 'Batman',
@@ -59,7 +61,7 @@ const listOfHeroes = reactive([
 	}
 ])
 
-const selectedHeroes = reactive([])
+const selectedHeroes = ref(['h1'])
 </script>
 
 <style lang="scss">
