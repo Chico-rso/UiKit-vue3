@@ -31,6 +31,18 @@
 			v-model:value="selectedHeroes"
 		/>
 	</div>
+	<h2 class="heading-2">Checkbox Switch</h2>
+	<p>Switch: {{switchProfessional}}</p>
+	<div class="line">
+		<Checkbox
+			label="Switch"
+			id="switch"
+			name="switch"
+			value="Switch"
+			type="switch"
+			v-model:checked="switchProfessional"
+		/>
+	</div>
 </template>
 
 <script setup>
@@ -41,6 +53,8 @@ import {reactive, ref} from "vue";
 const checkboxActive = ref(true)
 const checkboxDisabled = ref(true)
 const checkboxDisabledChecked = ref(true)
+
+const switchProfessional = ref(false)
 
 const listOfHeroes = reactive([
 	{
