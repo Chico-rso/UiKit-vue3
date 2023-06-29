@@ -81,7 +81,6 @@ const handleClick = (event) =>
 		flex-shrink: 0;
 		flex-grow: 0;
 		border: 1px solid #adb5bd;
-		border-radius: 6px;
 		margin-right: 10px;
 		background-repeat: no-repeat;
 		background-position: center center;
@@ -109,7 +108,7 @@ const handleClick = (event) =>
 
 	&:focus + label::before
 	{
-		box-shadow: 0px 7px 20px rgba(0, 0, 0, 0.07);
+		box-shadow: 0 7px 20px rgba(0, 0, 0, 0.07);
 	}
 
 	&:focus:not(:checked) + label::before
