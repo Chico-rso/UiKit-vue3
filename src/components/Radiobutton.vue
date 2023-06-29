@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-const emits = defineEmits(["update:checked"]);
+const emits = defineEmits(["update:checkedValue"]);
 const props = defineProps({
 	name:
 		{
@@ -54,7 +54,7 @@ const props = defineProps({
 
 const handleClick = (event) =>
 {
-	emits("update:checked", event.target.value);
+	emits("update:checkedValue", event.target.value);
 };
 </script>
 

@@ -2,7 +2,7 @@
 	<h1 class="heading-1">Radiobutton</h1>
 	<h2 class="heading-2">Basic</h2>
 	<div class="line line__block">
-		<p>{{ selectedClub }}</p>
+		<p>Selected club: {{ selectedClub }}</p>
 		<div
 			v-for="club in footbalClubs"
 			:key="club.id"
@@ -13,6 +13,7 @@
 				:label="club.name"
 				:id="club.id"
 				name="club"
+				v-model:checkedValue="selectedClub"
 			/>
 		</div>
 	</div>
@@ -41,7 +42,7 @@ const footbalClubs = ref([
 	}
 ]);
 
-const selectedClub = ref({});
+const selectedClub = ref('');
 </script>
 
 <style lang="scss" scoped>
