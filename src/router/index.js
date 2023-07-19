@@ -4,6 +4,7 @@ import Button from "@/views/Button.vue";
 import Typography from "@/views/Typography.vue";
 import Checkbox from "@/views/CheckboxView.vue";
 import RadiobuttonView from "@/views/RadiobuttonView.vue";
+import Progress from "@/views/Progress.vue";
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -32,6 +33,11 @@ const router = createRouter({
 			path: '/radio-button',
 			name: 'Radio-button',
 			component: RadiobuttonView
+		},
+		{
+			path: '/progress',
+			name: 'Progress',
+			component: Progress
 		}
 	]
 })
