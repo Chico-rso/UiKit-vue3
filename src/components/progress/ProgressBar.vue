@@ -2,8 +2,7 @@
 	<div class="progress-container" :style="[{'max-width': maxWidth}]">
 		<span class="progress-percent" :style="[{'color': `var(--${color})`}]">{{percent}}%</span>
 		<div class="progress" :style="[{'background': `var(--${color}-hover)`}]">
-			<div class="progress-bar" :style="[{'width': `${percent}%`, 'background': `var(--${color})`}]">
-			</div>
+			<div class="progress-bar" :style="[{'width': `${percent}%`, 'background': `var(--${color})`}]"></div>
 		</div>
 	</div>
 </template>
