@@ -17,6 +17,17 @@
 			/>
 		</div>
 	</div>
+	<h2 class="heading-2">Disabled</h2>
+	<div class="line">
+		<Radiobutton
+			value="Disabled radiobutton"
+			label="Disabled radiobutton"
+			id="DisabledRadiobutton"
+			name="club"
+			:disabled="disabledRadio"
+			v-model:checkedValue="disabledRadioChacked"
+		/>
+	</div>
 </template>
 
 <script setup>
@@ -33,16 +44,18 @@ const footbalClubs = ref([
 		id: 'f2'
 	},
 	{
-		name: "Barcelona Moscow",
+		name: "Barcelona",
 		id: 'f3'
 	},
 	{
-		name: "Real Madrid Moscow",
+		name: "Real Madrid",
 		id: 'f4'
 	}
 ]);
 
 const selectedClub = ref('');
+const disabledRadio = ref(true);
+const disabledRadioChacked = ref(true);
 </script>
 
 <style lang="scss" scoped>
