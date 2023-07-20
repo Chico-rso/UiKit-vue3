@@ -39,6 +39,13 @@
 				v-model:value="v$.confirmPassword.$model"
 				:error="v$.confirmPassword.$errors"
 			/>
+			<Input
+				label="Custom validation"
+				name="custom"
+				placeholder="Custom validation"
+				v-model:value="v$.frontendField.$model"
+				:error="v$.frontendField.$errors"
+			/>
 		</form>
 	</div>
 </template>
@@ -54,6 +61,9 @@ const emailFiled = ref('');
 const luckyField = ref('');
 const passwordField = ref('');
 const confirmPassword = ref('');
+const frontendField = ref('frontend')
+
+const mustBeFrontend = (value) => value.includes('frontend');
 
 const rules = computed(() =>({
 	nameField:
@@ -72,10 +82,15 @@ const rules = computed(() =>({
 	confirmPassword:
 		{
 			sameAsPassword: helpers.withMessage('Пароли не совпадают', sameAs(passwordField.value)),
+		},
+	frontendField:
+		{
+			frontendField: helpers.withMessage('Нет соответсвующего слова', mustBeFrontend),
 		}
 }))
 
-const v$ = useVuelidate(rules, {nameField, emailFiled, luckyField, confirmPassword})
+
+const v$ = useVuelidate(rules, {nameField, emailFiled, luckyField, confirmPassword, frontendField})
 
 </script>
 
