@@ -2,12 +2,27 @@
 	<h1 class="heading-1">Inputs</h1>
 	<h2 class="heading-2">Input</h2>
 	<div class="line">
-		<form action="submit">
+		<form>
 			<Input
 				label="Your name"
 				name="name"
 				placeholder="Your name"
-				v-model:value="nameField"
+				v-model:value="v$.nameField.$model"
+				:error="v$.nameField.$errors"
+			/>
+			<Input
+				label="Your email"
+				name="email"
+				placeholder="Your email"
+				v-model:value="v$.emailFiled.$model"
+				:error="v$.emailFiled.$errors"
+			/>
+			<Input
+				label="Your lucky number"
+				name="number"
+				placeholder="Your lucky number"
+				v-model:value="v$.luckyField.$model"
+				:error="v$.luckyField.$errors"
 			/>
 		</form>
 	</div>
@@ -15,9 +30,32 @@
 
 <script setup>
 import Input from "@/components/Input.vue";
-import {ref} from "vue";
+import {ref, computed} from "vue";
+import useVuelidate from "@vuelidate/core";
+import {helpers, minLength, maxLength, email, numeric} from "@vuelidate/validators";
 
-const nameField = ref('')
+const nameField = ref('');
+const emailFiled = ref('');
+const luckyField = ref('');
+
+const rules = computed(() =>({
+	nameField:
+		{
+			minLength: helpers.withMessage(`Минимальная длина: 3 символа`, minLength(3))
+		},
+	emailFiled:
+		{
+			email: helpers.withMessage(`Вы ввели неверный email`, email)
+		},
+	luckyField:
+		{
+			maxLength: helpers.withMessage('Максимальная длина: 2 символа', maxLength(2)),
+			numeric: helpers.withMessage('Используйте только цифры', numeric),
+		}
+}))
+
+const v$ = useVuelidate(rules, {nameField, emailFiled, luckyField})
+
 </script>
 
 <style lang="scss" scoped>

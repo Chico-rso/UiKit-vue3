@@ -11,6 +11,16 @@
 			@input="updateValue"
 		>
 		<label :for="name" class="input__label">{{ label }}</label>
+		<TransitionGroup>
+			<div class="input__error"
+				 v-for="element of error"
+				 :key="element.$uid"
+			>
+				<div class="input__error-form">
+					{{element.$message}}
+				</div>
+			</div>
+		</TransitionGroup>
 	</div>
 </template>
 
@@ -47,6 +57,11 @@ const props = defineProps({
 		{
 			type: String,
 			default: 'Placeholder'
+		},
+	error:
+		{
+			type: String || Array,
+			required: false
 		}
 });
 
