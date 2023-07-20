@@ -2,7 +2,7 @@
 	<h1 class="heading-1">Inputs</h1>
 	<h2 class="heading-2">Input</h2>
 	<div class="line">
-		<form>
+		<form @submit.prevent="submitForm">
 			<Input
 				label="Your name"
 				name="name"
@@ -46,12 +46,14 @@
 				v-model:value="v$.frontendField.$model"
 				:error="v$.frontendField.$errors"
 			/>
+			<Button label="Submit" color="primary"></Button>
 		</form>
 	</div>
 </template>
 
 <script setup>
 import Input from "@/components/Input.vue";
+import Button from "@/components/Button.vue";
 import {ref, computed} from "vue";
 import useVuelidate from "@vuelidate/core";
 import {helpers, minLength, maxLength, email, numeric, sameAs} from "@vuelidate/validators";
@@ -61,7 +63,7 @@ const emailFiled = ref('');
 const luckyField = ref('');
 const passwordField = ref('');
 const confirmPassword = ref('');
-const frontendField = ref('frontend')
+const frontendField = ref('')
 
 const mustBeFrontend = (value) => value.includes('frontend');
 
@@ -85,12 +87,19 @@ const rules = computed(() =>({
 		},
 	frontendField:
 		{
-			frontendField: helpers.withMessage('Нет соответсвующего слова', mustBeFrontend),
+			frontendField: helpers.withMessage('Нет соответствующего слова frontend', mustBeFrontend),
 		}
 }))
 
 
-const v$ = useVuelidate(rules, {nameField, emailFiled, luckyField, confirmPassword, frontendField})
+const v$ = useVuelidate(rules, {nameField, emailFiled, luckyField, confirmPassword, frontendField});
+
+const submitForm = () =>
+{
+	v$.value.$touch()
+	if(v$.value.$error) return;
+	alert('Form submitted')
+}
 
 </script>
 
