@@ -24,6 +24,21 @@
 				v-model:value="v$.luckyField.$model"
 				:error="v$.luckyField.$errors"
 			/>
+			<Input
+				label="Your password"
+				name="password"
+				placeholder="Your password"
+				v-model:value="passwordField"
+				type="password"
+			/>
+			<Input
+				label="Confirm password"
+				name="confirm"
+				type="password"
+				placeholder="Confirm password"
+				v-model:value="v$.confirmPassword.$model"
+				:error="v$.confirmPassword.$errors"
+			/>
 		</form>
 	</div>
 </template>
@@ -32,11 +47,13 @@
 import Input from "@/components/Input.vue";
 import {ref, computed} from "vue";
 import useVuelidate from "@vuelidate/core";
-import {helpers, minLength, maxLength, email, numeric} from "@vuelidate/validators";
+import {helpers, minLength, maxLength, email, numeric, sameAs} from "@vuelidate/validators";
 
 const nameField = ref('');
 const emailFiled = ref('');
 const luckyField = ref('');
+const passwordField = ref('');
+const confirmPassword = ref('');
 
 const rules = computed(() =>({
 	nameField:
@@ -51,10 +68,14 @@ const rules = computed(() =>({
 		{
 			maxLength: helpers.withMessage('Максимальная длина: 2 символа', maxLength(2)),
 			numeric: helpers.withMessage('Используйте только цифры', numeric),
+		},
+	confirmPassword:
+		{
+			sameAsPassword: helpers.withMessage('Пароли не совпадают', sameAs(passwordField.value)),
 		}
 }))
 
-const v$ = useVuelidate(rules, {nameField, emailFiled, luckyField})
+const v$ = useVuelidate(rules, {nameField, emailFiled, luckyField, confirmPassword})
 
 </script>
 
