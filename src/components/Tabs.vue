@@ -9,6 +9,9 @@
 			{{ tab.label }}
 		</span>
 	</div>
+	<div class="tab-nav__content">
+		<slot/>
+	</div>
 </template>
 
 <script setup>

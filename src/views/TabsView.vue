@@ -2,12 +2,16 @@
 	<h1 class="heading-1">
 		Tabs
 	</h1>
-	<div class="line">
+	<div class="line-block">
 		<Tabs
 			:names="tabs"
 			:selectedTab="selectedTab"
 			@changeTab="changeTab"
-		/>
+		>
+			<div v-if="selectedTab === 'About'">About Lorem ipsum dolor sit!</div>
+			<div v-if="selectedTab === 'Vue'">Vue Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, velit.</div>
+			<div v-if="selectedTab === 'React'">React Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad delectus et iste odio pariatur quidem sequi vitae! Accusamus, odio possimus?</div>
+		</Tabs>
 	</div>
 </template>
 
