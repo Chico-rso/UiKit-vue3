@@ -6,6 +6,7 @@ import Checkbox from "@/views/CheckboxView.vue";
 import RadiobuttonView from "@/views/RadiobuttonView.vue";
 import Progress from "@/views/Progress.vue";
 import Inputs from "@/views/Inputs.vue";
+import Tabs from "@/views/TabsView.vue";
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -44,6 +45,11 @@ const router = createRouter({
 			path: '/inputs',
 			name: 'Inputs',
 			component: Inputs
+		},
+		{
+			path: '/tabs',
+			name: 'Tabs',
+			component: Tabs
 		}
 	]
 })

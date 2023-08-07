@@ -9,6 +9,7 @@ const links = reactive([
 	{name: "Radiobutton", href: "/radio-button"},
 	{name: "Progress", href: "/progress"},
 	{name: "Inputs", href: "/inputs"},
+	{name: "Tabs", href: "/tabs"},
 ]);
 const props = defineProps({
 	sidebarOpen:
