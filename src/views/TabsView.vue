@@ -3,12 +3,38 @@
 		Tabs
 	</h1>
 	<div class="line">
-		<Tabs/>
+		<Tabs
+			:names="tabs"
+			:selectedTab="selectedTab"
+			@changeTab="changeTab"
+		/>
 	</div>
 </template>
 
 <script setup>
 import Tabs from "@/components/Tabs.vue";
+import {ref} from "vue";
+
+const tabs = [
+	{
+		name: 'About',
+		label: 'О проекте'
+	},
+	{
+		name: 'Vue',
+		label: 'Про Vue'
+	},
+	{
+		name: 'React',
+		label: 'Про React'
+	}
+]
+const selectedTab = ref('About')
+
+const changeTab = (tabName) =>
+{
+	selectedTab.value = tabName;
+}
 </script>
 
 <style lang="scss" scoped>
