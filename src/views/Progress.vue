@@ -23,8 +23,8 @@
 
 <script setup>
 import {ref} from "vue";
-import ProgressBar from "@/components/progress/ProgressBar.vue";
-import ProgressCircle from "@/components/progress/ProgressCircle.vue";
+import ProgressBar from "@/components/Progress/ProgressBar.vue";
+import ProgressCircle from "@/components/Progress/ProgressCircle.vue";
 import Button from "@/components/Button.vue";
 
 const percentBar = ref(40);

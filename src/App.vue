@@ -1,16 +1,3 @@
-<script setup>
-import LayoutHeader from "@/components/Layout/Header.vue";
-import LayoutSidebar from "@/components/Layout/Sidebar.vue";
-import {ref} from "vue";
-
-const sidebarOpen = ref(false);
-
-function toggleSidebar()
-{
-	sidebarOpen.value = !sidebarOpen.value;
-}
-</script>
-
 <template>
 	<div class="container">
 		<div class="sidebar__toggle" @click="toggleSidebar">&#5125</div>
@@ -23,6 +10,19 @@ function toggleSidebar()
 		</div>
 	</div>
 </template>
+
+<script setup>
+import LayoutHeader from "@/components/Layout/Header.vue";
+import LayoutSidebar from "@/components/Layout/Sidebar.vue";
+import {ref} from "vue";
+
+const sidebarOpen = ref(false);
+
+function toggleSidebar()
+{
+	sidebarOpen.value = !sidebarOpen.value;
+}
+</script>
 
 <style lang="scss">
 @import 'assets/styles/global';

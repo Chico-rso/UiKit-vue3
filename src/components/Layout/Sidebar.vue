@@ -1,26 +1,3 @@
-<script setup>
-import {onMounted, reactive, ref} from "vue";
-import router from "@/router/index.js";
-
-const links = reactive([
-	{name: "Typography", href: "/typography"},
-	{name: "Button", href: "/button"},
-	{name: "Checkbox", href: "/checkbox"},
-	{name: "Radiobutton", href: "/radio-button"},
-	{name: "Progress", href: "/progress"},
-	{name: "Inputs", href: "/inputs"},
-	{name: "Tabs", href: "/tabs"},
-	{name: "Table", href: "/table"},
-]);
-const props = defineProps({
-	sidebarOpen:
-	{
-		type: Boolean,
-		required: true,
-	},
-});
-</script>
-
 <template>
 	<div :class="['sidebar', {sidebar__isopen: sidebarOpen}]">
 		<router-link
@@ -33,6 +10,29 @@ const props = defineProps({
 		</router-link>
 	</div>
 </template>
+
+<script setup>
+import {onMounted, reactive, ref} from "vue";
+import router from "@/router/index.js";
+
+const links = reactive([
+	{name: "Typography", href: "/typography"},
+	{name: "Button", href: "/button"},
+	{name: "Checkbox", href: "/checkbox"},
+	{name: "Radiobutton", href: "/radio-button"},
+	{name: "Progress", href: "/Progress"},
+	{name: "Inputs", href: "/inputs"},
+	{name: "Tabs", href: "/tabs"},
+	{name: "Table", href: "/table"},
+]);
+const props = defineProps({
+	sidebarOpen:
+	{
+		type: Boolean,
+		required: true,
+	},
+});
+</script>
 
 <style scoped lang="scss">
 .sidebar

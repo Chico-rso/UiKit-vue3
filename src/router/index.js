@@ -38,7 +38,7 @@ const router = createRouter({
 			component: RadiobuttonView
 		},
 		{
-			path: '/progress',
+			path: '/Progress',
 			name: 'Progress',
 			component: Progress
 		},
