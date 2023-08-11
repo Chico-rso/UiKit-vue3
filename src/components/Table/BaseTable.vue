@@ -1,7 +1,16 @@
 <template>
 	<div class="table-wrapper">
 		<div class="table">
-			<div class="table-head"></div>
+			<div class="table-head"
+				 :style="{'grid-template-columns': columnTemplates}"
+			>
+				<div class="table-head__name"
+					 v-for="(name,i) of head"
+					 :key="i"
+				>
+					{{name}}
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -9,10 +18,15 @@
 <script setup>
 
 const props = defineProps({
-	title:
+	head:
+		{
+			type: Array,
+			required: false
+		},
+	columnTemplates:
 		{
 			type: String,
-			required: true
+			required: false
 		}
 })
 </script>
