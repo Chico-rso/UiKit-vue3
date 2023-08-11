@@ -10,6 +10,7 @@ const links = reactive([
 	{name: "Progress", href: "/progress"},
 	{name: "Inputs", href: "/inputs"},
 	{name: "Tabs", href: "/tabs"},
+	{name: "Table", href: "/table"},
 ]);
 const props = defineProps({
 	sidebarOpen:
