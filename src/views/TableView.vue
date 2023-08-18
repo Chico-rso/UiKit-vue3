@@ -4,7 +4,7 @@
 		<BaseTable
 			:head="tableHeads"
 			:columnTemplates="tableSizeColumns"
-		/>
+		></BaseTable>
 	</div>
 </template>
 
