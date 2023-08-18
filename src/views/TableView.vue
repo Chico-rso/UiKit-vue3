@@ -1,5 +1,7 @@
 <template>
 	<h1 class="heading-1">Table</h1>
+	<span style="display: block">Sort Field: {{sortField}}</span>
+	<span>Type Sort: {{typeSort}}</span>
 	<div class="line line__block">
 		<BaseTable
 			:head="tableHeads"
