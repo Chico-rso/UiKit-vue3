@@ -7,6 +7,7 @@
 				<div class="table-head__name"
 					 v-for="(name,i) of head"
 					 :key="i"
+					 @click="clickOnHead(name)"
 				>
 					{{name}}
 				</div>
@@ -30,6 +31,11 @@ const props = defineProps({
 			required: false
 		}
 })
+const emit = defineEmits(['sorting'])
+const clickOnHead = (name) =>
+{
+	emit('sorting', name.toLowerCase());
+}
 </script>
 
 <style lang="scss" scoped>

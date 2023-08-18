@@ -1,6 +1,6 @@
 <template>
 	<div class="table-row"
-		 :style="{'grid-template-columns': columnTemplates}"
+		 :style="{'grid-template-columns': columnTemplates, 'background-color': bgRow}"
 	>
 		<slot></slot>
 	</div>
@@ -14,6 +14,11 @@ const props = defineProps({
 			type: String,
 			required: false,
 		},
+	bgRow:
+		{
+			type: String,
+			required: false
+		}
 });
 </script>
 
