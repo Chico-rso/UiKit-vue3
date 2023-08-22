@@ -32,6 +32,7 @@ const openModalWindow = () =>
 const  closeModalWindow = (val) =>
 {
 	isOpen.value = val;
+	document.body.style.overflow = "";
 }
 </script>
 
