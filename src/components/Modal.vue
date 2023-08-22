@@ -1,6 +1,7 @@
 <template>
 	<div class="modal"
 		 v-if="isOpen"
+		 @click="clickOutSide"
 	>
 		<div class="modal__content">
 			<svg width="30px" height="30px"
@@ -26,6 +27,14 @@ const emit = defineEmits(['closeModal'])
 const closeModalWindow = () =>
 {
 	emit('closeModal', false)
+}
+const clickOutSide = (event) =>
+{
+	let target = event.target;
+	if(!target.closest('.modal__content'))
+	{
+		emit('closeModal', false)
+	}
 }
 </script>
 
