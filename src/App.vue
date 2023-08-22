@@ -7,6 +7,7 @@
 		/>
 		<div :class="['content', {content__full: !sidebarOpen}]">
 			<router-view/>
+			<Sprite/>
 		</div>
 	</div>
 </template>
@@ -15,6 +16,7 @@
 import LayoutHeader from "@/components/Layout/Header.vue";
 import LayoutSidebar from "@/components/Layout/Sidebar.vue";
 import {ref} from "vue";
+import Sprite from "@/components/Sprite.vue";
 
 const sidebarOpen = ref(false);
 

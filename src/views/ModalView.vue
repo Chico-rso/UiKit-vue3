@@ -8,8 +8,11 @@
 		></Button>
 		<Modal
 			:isOpen="isOpen"
+			@close-modal="closeModalWindow"
 		>
-			<h1>Example</h1>
+			<h3>Example</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur dolores fugit ipsa neque pariatur quasi, sapiente veritatis. Atque, iure, quae?</p>
+			<Button label="Send"></Button>
 		</Modal>
 	</div>
 </template>
@@ -23,7 +26,12 @@ const isOpen = ref(false)
 
 const openModalWindow = () =>
 {
-	return isOpen.value = true;
+	isOpen.value = true;
+	document.body.style.overflow = "hidden";
+}
+const  closeModalWindow = (val) =>
+{
+	isOpen.value = val;
 }
 </script>
 
