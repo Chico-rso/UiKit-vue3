@@ -8,6 +8,7 @@ import Progress from "@/views/Progress.vue";
 import Inputs from "@/views/Inputs.vue";
 import Tabs from "@/views/TabsView.vue";
 import TableView from "@/views/TableView.vue";
+import ModalView from "@/views/ModalView.vue";
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -56,6 +57,11 @@ const router = createRouter({
 			path: '/table',
 			name: 'Table',
 			component: TableView
+		},
+		{
+			path: '/modal',
+			name: 'Modal',
+			component: ModalView
 		}
 	]
 })
