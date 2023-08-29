@@ -1,19 +1,21 @@
 <template>
-	<Transition name="transition">
-		<div class="modal"
-			 v-if="isOpen"
-			 @click="clickOutSide"
-		>
-			<div class="modal__content">
-				<svg width="30px" height="30px"
-					 @click="closeModalWindow"
-				>
-					<use xlink:href="#closeIcon"></use>
-				</svg>
-				<slot></slot>
+	<teleport to="body">
+		<Transition name="transition">
+			<div class="modal"
+				 v-if="isOpen"
+				 @click="clickOutSide"
+			>
+				<div class="modal__content">
+					<svg width="30px" height="30px"
+						 @click="closeModalWindow"
+					>
+						<use xlink:href="#closeIcon"></use>
+					</svg>
+					<slot></slot>
+				</div>
 			</div>
-		</div>
-	</Transition>
+		</Transition>
+	</teleport>
 </template>
 
 <script setup>
