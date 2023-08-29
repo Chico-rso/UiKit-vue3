@@ -2,10 +2,11 @@
 	<h3>Example</h3>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur dolores fugit ipsa neque pariatur quasi,
 		sapiente veritatis. Atque, iure, quae?</p>
-	<Button label="Send"></Button>
+	<Button label="Send" />
 </template>
 
-<script>
+<script setup>
+import Button from "@/components/Button.vue";
 </script>
 
 <style lang="scss" scoped>
