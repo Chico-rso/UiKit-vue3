@@ -9,16 +9,12 @@
 		<Button label="Open Modal2"
 			@click="openModalWindow2"
 		></Button>
-		<component :isOpen="isOpen">
-			<ExamplePopup1
-				@close-modal="closeModalWindow"
-			/>
-		</component>
-		<component :isOpen="isOpen2">
-			<ExamplePopup2
-				@close-modal="closeModalWindow"
-			/>
-		</component>
+		<ModalWindow :isOpen="isOpen" @close-modal="isOpen = false">
+			<ExamplePopup1/>
+		</ModalWindow>
+		<ModalWindow :isOpen="isOpen2" @close-modal="isOpen2 = false">
+			<ExamplePopup2/>
+		</ModalWindow>
 	</div>
 </template>
 
@@ -27,6 +23,7 @@ import ExamplePopup1 from "@/components/poups/ExamplePopup1.vue"
 import ExamplePopup2 from "@/components/poups/ExamplePopup2.vue"
 import Button from "@/components/Button.vue";
 import {ref} from "vue";
+import ModalWindow from "@/components/modal/ModalWindow.vue";
 
 const isOpen = ref(false)
 const isOpen2 = ref(false)
@@ -42,11 +39,6 @@ const openModalWindow2 = () =>
 {
 	isOpen2.value = true;
 	document.body.style.overflow = "hidden";
-}
-const  closeModalWindow = (val) =>
-{
-	isOpen.value = val;
-	document.body.style.overflow = "";
 }
 </script>
 

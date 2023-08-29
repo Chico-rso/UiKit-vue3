@@ -29,6 +29,7 @@ const emit = defineEmits(["closeModal"]);
 const closeModalWindow = () =>
 {
 	emit("closeModal", false);
+	document.body.style.overflow = "";
 };
 const clickOutSide = (event) =>
 {
@@ -36,6 +37,7 @@ const clickOutSide = (event) =>
 	if (!target.closest(".modal__content"))
 	{
 		emit("closeModal", false);
+		document.body.style.overflow = "";
 	}
 };
 </script>
