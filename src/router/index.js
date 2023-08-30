@@ -9,6 +9,7 @@ import Inputs from "@/views/Inputs.vue";
 import Tabs from "@/views/TabsView.vue";
 import TableView from "@/views/TableView.vue";
 import ModalView from "@/views/ModalView.vue";
+import SliderView from "@/views/SliderView.vue";
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -62,6 +63,11 @@ const router = createRouter({
 			path: '/modal',
 			name: 'Modal',
 			component: ModalView
+		},
+		{
+			path: '/slider',
+			name: 'Slider',
+			component: SliderView
 		}
 	]
 })
