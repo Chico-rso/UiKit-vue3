@@ -4,32 +4,23 @@
 			<div class="slider__slide"
 				 v-for="slide of slides"
 			>
-				<img :src="slide.imageSrc" alt="">
+				<img :src="slide.imgSrc" alt="">
 			</div>
 		</div>
 		<div class="slider__pagination"></div>
-		<div class="slider__btn-prev">prev</div>
-		<div class="slider__btn-next">next</div>
+		<div class="slider__btn-prev"><span>prev</span></div>
+		<div class="slider__btn-next"><span>next</span></div>
 	</div>
 </template>
 
 <script setup>
-import {reactive} from "vue";
-
-const slides = reactive([
+const props = defineProps({
+	slides:
 	{
-		imageSrc: 'https://imgholder.ru/600x300/8493a8/adb9ca&text=IMAGE+HOLDER&font=kelson'
-	},
-	{
-		imageSrc: 'https://imgholder.ru/600x300/8493a8/adb9ca&text=IMAGE+HOLDER&font=kelson'
-	},
-	{
-		imageSrc: 'https://imgholder.ru/600x300/8493a8/adb9ca&text=IMAGE+HOLDER&font=kelson'
-	},
-	{
-		imageSrc: 'https://imgholder.ru/600x300/8493a8/adb9ca&text=IMAGE+HOLDER&font=kelson'
+		type: Array,
+		requred: true
 	}
-])
+})
 </script>
 
 <style lang="scss" scoped>
@@ -50,6 +41,10 @@ const slides = reactive([
 .slider__btn-next,
 .slider__btn-prev
 {
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	vertical-align: middle;
 	position: absolute;
 	top: 50%;
 	transform: translate(-50%);
