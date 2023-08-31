@@ -9,7 +9,7 @@
 				 :style="{transform: `translate(${slideWidth}px)`}"
 			>
 					<span>{{index}}</span>
-					<img :src="slide.imgSrc" alt="">
+					<img :src="slide.imgSrc" alt="" ref="slideSize" id="slideSizeId">
 			</div>
 		</div>
 		<div class="slider__pagination"></div>
@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 
 const props = defineProps({
 	slides:
@@ -28,9 +28,10 @@ const props = defineProps({
 		requred: true
 	}
 })
-
+const initSlider = ref(true)
 const curSlide = ref(0);
 const slidesLength = props.slides.length;
+const slideSize = ref(null);
 const slideWidth = ref(0);
 
 const goToPrev = () =>
@@ -107,5 +108,17 @@ const goToNext = () =>
 }
 .slider__btn-prev{left: -15px;}
 .slider__btn-next{right: -15px;}
-
+.preloader
+{
+	background-color: #BE52F2;
+	width: 500px;
+	height: 250px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 9999;
+}
+[v-cloak]::before{content: 'Loading...';}
+[v-cloak] > *{display: none;}
 </style>
