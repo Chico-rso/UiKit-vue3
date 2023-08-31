@@ -36,22 +36,28 @@ const slideWidth = ref(0);
 const goToPrev = () =>
 {
 	if(curSlide.value === 0)
+	{
 		curSlide.value = slidesLength - 1;
+		slideWidth.value = -(slidesLength - 1) * 500;
+	}
 	else
 	{
 		curSlide.value--;
+		slideWidth.value += 500
 	}
-	slideWidth.value += 500
 }
 const goToNext = () =>
 {
 	if(curSlide.value === slidesLength - 1)
+	{
 		curSlide.value = 0;
+		slideWidth.value = 0;
+	}
 	else
 	{
 		curSlide.value++;
+		slideWidth.value -= 500
 	}
-	slideWidth.value -= 500
 }
 </script>
 
