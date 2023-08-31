@@ -1,19 +1,26 @@
 <template>
 	<div class="slider">
-		<div class="slider__wrapper">
+		<div class="slider__wrapper"
+		>
 			<div class="slider__slide"
-				 v-for="slide of slides"
+				 v-for="(slide, index) of slides"
+				 :key="index"
+				 :class="{active: index === curSlide}"
+				 :style="{transform: `translate(${slideWidth}px)`}"
 			>
-				<img :src="slide.imgSrc" alt="">
+					<span>{{index}}</span>
+					<img :src="slide.imgSrc" alt="">
 			</div>
 		</div>
 		<div class="slider__pagination"></div>
-		<div class="slider__btn-prev"><span>prev</span></div>
-		<div class="slider__btn-next"><span>next</span></div>
+		<button class="slider__btn-prev" @click="goToPrev"><span>prev</span></button>
+		<button class="slider__btn-next" @click="goToNext"><span>next</span></button>
 	</div>
 </template>
 
 <script setup>
+import {ref} from "vue";
+
 const props = defineProps({
 	slides:
 	{
@@ -21,6 +28,31 @@ const props = defineProps({
 		requred: true
 	}
 })
+
+const curSlide = ref(0);
+const slidesLength = props.slides.length;
+const slideWidth = ref(0);
+
+const goToPrev = () =>
+{
+	if(curSlide.value === 0)
+		curSlide.value = slidesLength - 1;
+	else
+	{
+		curSlide.value--;
+	}
+	slideWidth.value += 500
+}
+const goToNext = () =>
+{
+	if(curSlide.value === slidesLength - 1)
+		curSlide.value = 0;
+	else
+	{
+		curSlide.value++;
+	}
+	slideWidth.value -= 500
+}
 </script>
 
 <style lang="scss" scoped>
@@ -29,14 +61,26 @@ const props = defineProps({
 	position: relative;
 	width: 100%;
 	height: 100%;
+	margin-left: 20px;
 }
 .slider__wrapper
 {
+	width: 100%;
+	height: 100%;
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	gap: 20px;
 	overflow: hidden;
+}
+.slider__slide
+{
+	flex: 0 0 100%;
+	transition: all .3s ease;
+	img
+	{
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
 }
 .slider__btn-next,
 .slider__btn-prev
@@ -47,14 +91,15 @@ const props = defineProps({
 	vertical-align: middle;
 	position: absolute;
 	top: 50%;
-	transform: translate(-50%);
+	transform: translate(0, -50%);
 	border-radius: 10px;
+	border: none;
 	background-color: #00C48C;
 	cursor: pointer;
 	transition: all .3s ease;
 	&:hover{background-color: #7DDFC3;}
 }
-.slider__btn-prev{left: 0;}
-.slider__btn-next{right: 0;}
+.slider__btn-prev{left: -15px;}
+.slider__btn-next{right: -15px;}
 
 </style>

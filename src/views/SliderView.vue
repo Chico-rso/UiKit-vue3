@@ -28,5 +28,8 @@ const sliderData = reactive([
 </script>
 
 <style lang="scss" scoped>
-
+.line__block
+{
+	max-width: 500px;
+}
 </style>
