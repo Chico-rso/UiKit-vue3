@@ -12,8 +12,8 @@
 			</div>
 		</div>
 		<div class="slider__pagination"></div>
-		<button class="slider__btn-prev" @click="goToPrev"><span>prev</span></button>
-		<button class="slider__btn-next" @click="goToNext"><span>next</span></button>
+		<button class="slider__btn slider__btn-prev" @click="goToPrev"> &lt; </button>
+		<button class="slider__btn slider__btn-next" @click="goToNext"> &lt; </button>
 	</div>
 </template>
 
@@ -92,8 +92,7 @@ const goToNext = () =>
 		object-fit: cover;
 	}
 }
-.slider__btn-next,
-.slider__btn-prev
+.slider__btn
 {
 	width: 30px;
 	height: 30px;
@@ -110,7 +109,12 @@ const goToNext = () =>
 	&:hover{background-color: #7DDFC3;}
 }
 .slider__btn-prev{left: -15px;}
-.slider__btn-next{right: -15px;}
+.slider__btn-next
+{
+	right: -15px;
+	top: 50%;
+	transform: translate(0, -50%) rotate(180deg);
+}
 .preloader
 {
 	background-color: #BE52F2;
