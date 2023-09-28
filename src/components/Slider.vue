@@ -8,7 +8,6 @@
 				 :class="{active: index === curSlide}"
 				 :style="{transform: `translate(${slideWidth}px)`}"
 			>
-					<span>{{index}}</span>
 					<img :src="slide.imgSrc" alt="" ref="slideSize" id="slideSizeId">
 			</div>
 		</div>
@@ -28,7 +27,6 @@ const props = defineProps({
 		requred: true
 	}
 })
-const initSlider = ref(true)
 const curSlide = ref(0);
 const slidesLength = props.slides.length;
 const slideSize = ref(null);
@@ -36,15 +34,16 @@ const slideWidth = ref(0);
 
 const goToPrev = () =>
 {
+
 	if(curSlide.value === 0)
 	{
 		curSlide.value = slidesLength - 1;
-		slideWidth.value = -(slidesLength - 1) * 500;
+		slideWidth.value = -(slidesLength - 1) * slideSize.value[0].clientWidth;
 	}
 	else
 	{
 		curSlide.value--;
-		slideWidth.value += 500
+		slideWidth.value += slideSize.value[0].clientWidth
 	}
 }
 const goToNext = () =>
@@ -57,7 +56,7 @@ const goToNext = () =>
 	else
 	{
 		curSlide.value++;
-		slideWidth.value -= 500
+		slideWidth.value -= slideSize.value[0].clientWidth
 	}
 }
 </script>
@@ -74,6 +73,7 @@ const goToNext = () =>
 {
 	width: 100%;
 	height: 100%;
+	border-radius: 10px;
 	display: flex;
 	align-items: center;
 	overflow: hidden;
@@ -82,8 +82,11 @@ const goToNext = () =>
 {
 	flex: 0 0 100%;
 	transition: all .3s ease;
+	border-radius: 10px;
+	overflow: hidden;
 	img
 	{
+		display: block;
 		width: 100%;
 		height: auto;
 		object-fit: cover;
