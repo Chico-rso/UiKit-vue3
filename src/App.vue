@@ -15,7 +15,7 @@
 <script setup>
 import LayoutHeader from "@/components/Layout/Header.vue";
 import LayoutSidebar from "@/components/Layout/Sidebar.vue";
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 import Sprite from "@/components/Sprite.vue";
 
 const sidebarOpen = ref(false);
@@ -24,6 +24,11 @@ function toggleSidebar()
 {
 	sidebarOpen.value = !sidebarOpen.value;
 }
+(function(e, x, pe, r, i, me, nt){
+e[i]=e[i]||function(){(e[i].a=e[i].a||[]).push(arguments)},
+me=x.createElement(pe),me.async=1,me.src=r,nt=x.getElementsByTagName(pe)[0],nt.parentNode.insertBefore(me,nt)})
+(window, document, 'script', 'https://abt.s3.yandex.net/expjs/latest/exp.js', 'ymab');
+ymab('metrika.95337196', 'init'/*, {clientFeatures}, {callback}*/);
 </script>
 
 <style lang="scss">
