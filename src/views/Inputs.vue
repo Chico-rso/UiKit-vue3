@@ -12,6 +12,7 @@
 			/>
 			<Input
 				label="Your email"
+				type="email"
 				name="email"
 				placeholder="Your email"
 				v-model:value="v$.emailFiled.$model"
@@ -20,6 +21,7 @@
 			<Input
 				label="Your lucky number"
 				name="number"
+				type="number"
 				placeholder="Your lucky number"
 				v-model:value="v$.luckyField.$model"
 				:error="v$.luckyField.$errors"
