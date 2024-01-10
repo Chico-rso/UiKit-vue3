@@ -26,6 +26,7 @@ const links = reactive([
 	{name: "Table", href: "/table"},
 	{name: "Modal", href: "/modal"},
 	{name: "Slider", href: "/slider"},
+	{name: "FormRating", href: "/ratings"},
 ]);
 const props = defineProps({
 	sidebarOpen:

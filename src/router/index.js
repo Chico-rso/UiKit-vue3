@@ -10,6 +10,7 @@ import Tabs from "@/views/TabsView.vue";
 import TableView from "@/views/TableView.vue";
 import ModalView from "@/views/ModalView.vue";
 import SliderView from "@/views/SliderView.vue";
+import RatingView from "@/views/RatingView.vue";
 
 const router = createRouter({
 	history: createWebHistory(),
@@ -68,6 +69,11 @@ const router = createRouter({
 			path: '/slider',
 			name: 'Slider',
 			component: SliderView
+		},
+		{
+			path: '/ratings',
+			name: 'FormRating',
+			component: RatingView
 		}
 	]
 })
