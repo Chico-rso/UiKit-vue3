@@ -7,5 +7,4 @@
 </script>
 
 <style lang="scss" scoped>
-.ab-heading-2{display: none;}
 </style>
