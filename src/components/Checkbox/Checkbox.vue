@@ -83,6 +83,17 @@ const handleClick = (event) =>
 	}
 	emits("update:checked", event.target.checked);
 };
+	ymab('metrika.95337196', 'getFlags', function(flags) {
+		const heading = document.querySelectorAll('.ab-heading-1');
+		const heading2 = document.querySelectorAll('.ab-heading-2');
+		heading.forEach((item) => {
+			item.style.display = flags.hide;
+		})
+		heading2.forEach((item) =>
+		{
+			item.style.display = flags.show;
+		})
+});
 </script>
 
 <style lang="scss" scoped>
