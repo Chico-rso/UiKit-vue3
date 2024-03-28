@@ -30,13 +30,11 @@ function toggleSidebar()
 	(window, document, 'script', 'https://abt.s3.yandex.net/expjs/latest/exp.js', 'ymab');
 	ymab('metrika.95337196', 'init'/*, {clientFeatures}, {callback}*/);
 	ymab('metrika.95337196', 'getFlags', function(flags) {
-    for (const [key, value] of Object.entries(flags)) {
-		const heading = document.querySelector('.ab-heading-1');
+    const heading = document.querySelector('.ab-heading-1');
 		const heading2 = document.querySelector('.ab-heading-2');
 
 		heading.style.display = flags.hide;
 		heading2.style.display = flags.show;
-    }
 });
 </script>
 
