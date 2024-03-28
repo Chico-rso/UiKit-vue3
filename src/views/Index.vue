@@ -1,5 +1,5 @@
 <template>
-	<h1 class="heading-1" hide="display:none">Добро пожаловать в Ui Kit</h1>
+	<h1 class="heading-1">Добро пожаловать в Ui Kit</h1>
 </template>
 
 <script setup>
