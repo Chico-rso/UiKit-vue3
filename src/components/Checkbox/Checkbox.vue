@@ -1,5 +1,10 @@
 <template>
 	<div :class="[{'switch-container': type === 'switch'}]">
+		<h1 class="heading-1 ab-heading-1">Добро пожаловать в Ui Kit</h1>
+		<h1 class="heading-1 ab-heading-1">Добро пожаловать в Ui Kit</h1>
+		<h1 class="heading-1 ab-heading-1">Добро пожаловать в Ui Kit</h1>
+		<h1 class="heading-1 ab-heading-1">Добро пожаловать в Ui Kit</h1>
+		<h1 class="heading-1 ab-heading-1">Добро пожаловать в Ui Kit</h1>
 		<input
 			:class="[{'checkbox': type === 'checkbox'}, {'switch': type === 'switch'}]"
 			type="checkbox"
