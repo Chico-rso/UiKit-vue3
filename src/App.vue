@@ -28,7 +28,16 @@ function toggleSidebar()
 	e[i]=e[i]||function(){(e[i].a=e[i].a||[]).push(arguments)},
 	me=x.createElement(pe),me.async=1,me.src=r,nt=x.getElementsByTagName(pe)[0],nt.parentNode.insertBefore(me,nt)})
 	(window, document, 'script', 'https://abt.s3.yandex.net/expjs/latest/exp.js', 'ymab');
-	ymab('metrika.95337196', 'init', {hide: 'display=none'}/*, {clientFeatures}, {callback}*/);
+	ymab('metrika.95337196', 'init'/*, {clientFeatures}, {callback}*/);
+	ymab('metrika.95337196', 'getFlags', function(flags) {
+    for (const [key, value] of Object.entries(flags)) {
+		const heading = document.querySelector('.ab-heading-1');
+		const heading2 = document.querySelector('.ab-heading-2');
+
+		heading.style.display = flags.hide;
+		heading2.style.display = flags.show;
+    }
+});
 </script>
 
 <style lang="scss">
